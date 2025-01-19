@@ -1,0 +1,17 @@
+The following CSS code snippet exhibits an uncommon error related to the specificity of CSS selectors and how they interact with the `!important` flag:
+
+```css
+#myElement {
+  color: blue;
+}
+
+.myClass {
+  color: red !important;
+}
+
+#myElement.myClass {
+  color: green;
+}
+```
+
+The expected behavior is that the `#myElement.myClass` rule, being more specific, should override the others.  However, because the `.myClass` rule uses `!important`, it will always override the `#myElement.myClass` rule, even though it's less specific. This can lead to unexpected results and difficulties in debugging.
